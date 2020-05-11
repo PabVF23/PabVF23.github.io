@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Index</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             :root{
                 font-family: Arial, Helvetica, sans-serif;
@@ -11,170 +9,102 @@
                 --color_oscuro_transparente:rgba(83, 77, 77,0.80);
                 --blanco: #fff;
                 --rojo: rgb(245, 14, 14);
-                font-size: 1vw;
+                font-size: 90%/1.3 ;
             }
-            *{
-                padding: 0px;
-                margin: 0px;
+            #PosicionamientoGrid{
+                display: grid;
+                grid-gap: 5px;
+                grid-template-rows: 1fr 9fr;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-areas:
+                "header header"
+                "nav content"
+                "nav footer"
+                ;
             }
-            a{
-                text-decoration: none;
-            }
-            ol, ul {
-		        list-style: none;
-	        }
-            .centrado_bloque{
-               margin-left: auto;
-               margin-right: auto; 
-            }
-            header{
-                position:fixed;
-                top:0px;
-                left:0px;
-                background-color: var(--color_oscuro);
-                min-height: 3.5rem;
-                width: 100%;
-                z-index: 2000;
-            }
-            header div{
-                position: fixed;
-                top: 0.25rem;
-                left:2rem;
+            #header{
+                background-color: var(--color_oscuro_transparente);
                 color:var(--rojo);
-                font-size: 1.5rem;
-                                            
-            }
-            header nav{
-                position:fixed;
-                top:1rem;
-                right:5rem;
-                font-size: 1.25rem;
-                font-weight: bold;  
-            }    
-            header nav ul{
-                text-align: right;
-            }                  
-            header nav ul > li{
-                display: inline-block;
-                vertical-align: top;
-                text-align: left;
-                min-width: 10rem;
-            }
-            header nav ul li > ul{
-                display: none;
-            }
-            header nav ul li:hover ul{
-                display: block;
+                grid-area: header;
                 text-align: center;
             }
-            header nav ul li:hover li{
-                display:block;
-                background-color: var(--color_oscuro);
+            #nav{
+                grid-area: nav;
+                background-color: var(--color_oscuro_transparente);
             }
-            .submenu:hover ul {
-                display: block;                 
+            #nav li a{
+                background-color: var(--color_oscuro_transparente);
+                color:var(--blanco);
             }
-            .submenu:hover ul > li{
-                display: block;
-                background-color: var(--color_oscuro);
-            }
-            nav a{
-                color: var(--blanco);
-            }
-            nav a:hover{
+            #nav li a:hover{
                 background-color: var(--blanco);
                 color:var(--color_oscuro);
             }
-            .hero{
-                background-image: url("https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/s150x150/69775283_2187359784897692_7860361141812199424_n.jpg?_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_ohc=sLM23s0BhIMAX8xlY1w&oh=796d223076e7b6a2baba22784558de57&oe=5EAA27E0");
+            #content li a{
+                background-color: var(--color_oscuro_transparente);
+                color:var(--blanco);
+            }
+            #content li a:hover{
+                background-color: var(--blanco);
+                color:var(--color_oscuro);
+            }
+            #content{
+                grid-area: content;
+                background-color: var(--color_oscuro_transparente);
+            }
+            
+            #footer{
+                grid-area: footer;
+                background-image: url("heroimage.jpg");
                 background-color: #cccccc;
-                height: 800px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
-                position: center;
-            }
-            .hero div{
-                position:relative;
-                top:20rem;
-                right:50rem;
                 background-color: var(--color_oscuro_transparente);
-                color:var(--blanco);
-                font-size: 1.25rem;
-                max-width: 30%;
-                padding:3em;
             }
-            .hero:hover div{
-                left:0;
-            }
-            .hero div>p{
-                padding-top: 3em;
-                columns:2;
-            }
-            main{
-                position: absolute;
-                top: 50rem;
-                left:10%;
-                min-width: 80%;
-                max-width: 80%;
-                z-index: 2000;
-            }
-            main article{
-                min-height: 300px;
-                min-width:50%;
+            #footer p{
                 background-color: var(--color_oscuro_transparente);
-                padding-top: 10px;
-                padding-bottom: 10px;
-             }
-            main article section{
-                min-height: 100px;
-                margin: 10px;
-                border-style: solid;
-                font-size: 1.5rem;
+                color:var(--blanco);    
             }
-            #actividades li{
-                display: inline-block;
-                background-color: var(--blanco);
-                color:var(--color_oscuro);
-                margin:2em;
-            }
-            #actividades li:hover{
-                background-color: var(--color_oscuroo);
-                color:var(--blanco);
-                margin:2em;
+            @media (max-width: 702px){
+                #PosicionamientoGrid{
+                display: grid;
+                grid-gap: 5px;
+                grid-template-columns: 100%;
+                grid-template-rows: 2fr 2fr 10fr 5fr;
+                grid-template-areas:
+                "header"
+                "nav"
+                "content"
+                "footer"
+                ;
+                }
             }
         </style>
     </head>
     <body>
-        <header>
-            <div class="contendor-fijo-izquierda">
+        <section id="PosicionamientoGrid">
+            <header id="header">
                 <h1>TIC2 en cuarentena</h1>
-            </div>
-            <nav class="contendor-fijo-derecha">
+            </header>
+            <nav id="nav">
                 <ul>
-                    <li class="submenu"><a href=#actividades>Mis trabajos TIC</a>
+                    <li><a href=#content>Mis trabajos TIC</a>
                         <ul>
                             <li><a href="#ejercicios-1">Introducción HTML</a></li>
                             <li><a href="#ejercicios-2">Introducción CSS</a></li>
                             <li><a href="#ejercicios-3">Ampliación HTML y CSS</a></li>
                             <li><a href="#ejercicios-4">Web semántica y videos</a></li>
+                            <li><a href="#ejercicios-5">CSS Grid y Media Queries</a></li>
                         </ul>
                     </li>
                     <li><a href="ultimoindex.html">Mi último index</a></li>
                     <li><a href=#sobre_mi>Sobre mi</a></li>
                 </ul>
             </nav>
-        </header>
-            <div class="hero">
-                <div>
-                    <h2>Mi página web de Github</h2>
-                    <p>El objetivo de esta página es proporcionar acceso a los ejercicios de HTML que he hecho a lo largo del curso.</p>
-                </div>
-            </div> 
-        <main>
-            <article id="actividades">
+            <main id="content">
                 <section id="ejercicios-1">
-                    <h2>Introducción HTML</h2> 
+                    <h2>Introducción HTML</h2>
                     <ul>
                         <li><a href="HTML/html-ejerc1-intro.html">Ejercicio 1</a></li>
                         <li><a href="HTML/html-ejerc2-poema.html">Ejercicio 2</a></li>
@@ -214,14 +144,26 @@
                         <li><a href="CSS 2 y Web Semántica/html-ejerc24-videos.html">Ejercicio 24</a></li>
                     </ul>
                 </section>
-            </article> 
-            <article id="sobre_mi">
-                <section>
-                    Me llamo Pablo Valdés Fernández y curso 2º de Bachillerato. En mis ratos libres me gusta leer, ver películas y series, escuchar música y tocar la guitarra. 
+                <section id=ejercicios-5>
+                    <h2>CSS Grid y Media Queries</h2>
+                    <ul>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc25-malla-google-fonts.html">Ejercicio 25</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc26-malla.html">Ejercicio 26</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc27-malla2.html">Ejercicio 27</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc28-responsivo.html">Ejercicio 28</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc29-responsivo_1.html">Ejercicio 29</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc30-responsivo_2.html">Ejercicio 30</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc31-responsivo_3.html">Ejercicio 31</a></li>
+                        <li><a href="CSS Grid y Media Queries/html-ejerc32-media-querie.html">Ejercicio 32</a></li>
+                    </ul>
                 </section>
-            </article>
-        </main>
-        <footer>
-        </footer>
+            </main>
+            <footer id="footer">
+                <p>
+                    Me llamo Pablo Valdés Fernández y curso 2º de Bachillerato. En mis ratos libres me gusta leer, ver películas y series, escuchar música y tocar la guitarra.
+                </p>
+                <img src="CSS Grid y Media Queries/Fleming.png" width=40%>
+            </footer>
+        </section>
     </body>
 </html>
